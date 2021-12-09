@@ -6,7 +6,7 @@ typedef unsigned __int16 WORD;
 typedef unsigned __int32 DWORD;
 typedef long int LONG;
 
-/// ���������, ���������� ���������� fileHeader`a
+/// Структура, отражающая устройство fileHeader`a
 typedef struct tagBITMAPFILEHEADER
 {
     WORD bfType;
@@ -16,7 +16,7 @@ typedef struct tagBITMAPFILEHEADER
     DWORD bfOffBits;
 } BITMAPFILEHEADER, * PBITMAPFILEHEADER;
 
-/// ���������, ���������� ���������� infoHeader`a
+/// Структура, отражающая устройство infoHeader`a
 typedef struct tagBITMAPINFOHEADER
 {
     DWORD  biSize;
@@ -34,7 +34,8 @@ typedef struct tagBITMAPINFOHEADER
 
 typedef unsigned __int8 BYTE;
 
-/// ���������, ���������� ���������� ���������� � ����� �������
+
+/// Структура, отражающая устройство информации о цвете пикселя
 typedef struct tagRGBQUAD
 {
     BYTE    rgbBlue;
@@ -43,7 +44,8 @@ typedef struct tagRGBQUAD
     BYTE    rgbReserved;
 } RGBQUAD;
 
-/// ��������� ��� �������� ������������� bmp ����� ������ ���������
+
+/// Структура для представления bmp файла внутри программы
 typedef struct BMPfile
 {
     BITMAPFILEHEADER fileHeader;
@@ -52,11 +54,9 @@ typedef struct BMPfile
     int** pixels;
 } BMPfile;
 
-/// ������� ��������� ����������� bmp ���� � �������� ������ fname
-/// � ��������� BMPfile � ���������� ��������� �� ��.
-/// � ������ ������� ������� ��������� � �������� � ������� � ���������� NULL.
-BMPfile* readBMP(const char* fname);
 
-/// ������� ��������� ������ ����������� BMP ���� ��� ������ ������.
-/// � ������ ������� ������� ��������� � �������� � ������� � ���������� false.
-bool saveBMP(BMPfile* bmp_file, const char* fname);
+/// Функция считывает монохромный bmp файл с заданным именем 
+BMPfile* readBMP(const char* test1);
+
+/// Функция сохраняет данный монохромный BMP файл под данным именем.
+bool saveBMP(BMPfile* bmp_file, const char* test1);
